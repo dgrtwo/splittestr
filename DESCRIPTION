@@ -1,0 +1,20 @@
+Package: splittestr
+Type: Package
+Title: Bayesian and frequentist A/B split testing
+Version: 0.1
+Date: 2015-08-12
+Author: c(person("David", "Robinson", email = "drobinson@stackoverflow.com", role = c("aut", "cre")))
+Maintainer: David Robinson <drobinson@stackoverflow.com>
+Description: Functions for Bayesian and frequentist A/B split testing. The main purpose
+  of this package is to provide functions and support for a blog post about
+  Bayesian A/B testing. It is not intended or documented to be used by others,
+  though it can be.
+License: MIT + file LICENSE
+LazyData: TRUE
+Suggests: testthat,
+    knitr,
+    ggplot2
+VignetteBuilder: knitr
+Imports: broom,
+    dplyr,
+    tidyr
