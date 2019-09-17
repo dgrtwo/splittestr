@@ -36,8 +36,8 @@ perform_simulation <- function(params, days = 20, per_day = 100,
 
   # simulate an A/B test for each day
   ret <- params %>%
-    broom::inflate(day = seq_len(days)) %>%
-    broom::inflate(type = c("A", "B"), stringsAsFactors = TRUE) %>%   # two types, A and B
+    tidyr::crossing(day = seq_len(days)) %>%
+    tidyr::crossing(type = c("A", "B"), stringsAsFactors = TRUE) %>%   # two types, A and B
     ungroup() %>%
     mutate(total = rbinom(n(), .$per_day, .5)) %>%  # half A, half B
     mutate(success = rbinom(n(), total, .$proportion_A + effect * (type == "B"))) %>%            # this is the simulation
