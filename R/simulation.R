@@ -13,7 +13,7 @@
 #'
 #' library(dplyr)
 #'
-#' sim <- data_frame(replicate = seq_len(nreps)) %>%
+#' sim <- tibble(replicate = seq_len(nreps)) %>%
 #'   mutate(proportion_A = .001, effect = 0, per_day = 10000) %>%
 #'   perform_simulation()
 #'
@@ -36,9 +36,9 @@ perform_simulation <- function(params, days = 20, per_day = 100,
 
   # simulate an A/B test for each day
   ret <- params %>%
-    broom::inflate(day = seq_len(days)) %>%
-    broom::inflate(type = c("A", "B"), stringsAsFactors = TRUE) %>%   # two types, A and B
-    ungroup() %>%
+    tidyr::crossing(day = seq_len(days)) %>%
+    tidyr::crossing(type = c("A", "B")) %>%   # two types, A and B
+    mutate(type = factor(type)) %>%
     mutate(total = rbinom(n(), .$per_day, .5)) %>%  # half A, half B
     mutate(success = rbinom(n(), total, .$proportion_A + effect * (type == "B"))) %>%            # this is the simulation
     group_by(effect, replicate, type, per_day) %>%

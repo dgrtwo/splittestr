@@ -26,4 +26,3 @@ https://www.chrisstucchio.com/blog/2014/bayesian_ab_decision_rule.html. Note
 that the \code{approx = TRUE} version is vectorized, but the exact version
 is not.
 }
-

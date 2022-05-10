@@ -46,10 +46,10 @@ vectorized_prop_test <- function(x1, n1, x2, n2, conf.level = .95) {
   z <- qnorm((1 + conf.level) / 2)
   WIDTH <- z * sqrt(mu1 * (1 - mu1) / n1 + mu2 * (1 - mu2) / n2)
 
-  dplyr::data_frame(estimate = DELTA,
-                    conf.low = pmax(DELTA - WIDTH, -1),
-                    conf.high = pmin(DELTA + WIDTH, 1),
-                    p.value = pvalue)
+  tibble::tibble(estimate = DELTA,
+                 conf.low = pmax(DELTA - WIDTH, -1),
+                 conf.high = pmin(DELTA + WIDTH, 1),
+                 p.value = pvalue)
 }
 
 

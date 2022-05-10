@@ -9,4 +9,3 @@ vectorized_prop_test_approx(a, b, c, d)
 \description{
 A vectorized version of the prop.test function
 }
-

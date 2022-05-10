@@ -4,8 +4,7 @@
 \alias{perform_simulation}
 \title{Perform a simulation of A/B testing based on a data frame of parameters}
 \usage{
-perform_simulation(params, days = 20, per_day = 100, proportion_A = 0.1,
-  ...)
+perform_simulation(params, days = 20, per_day = 100, proportion_A = 0.1, ...)
 }
 \arguments{
 \item{params}{A data frame of parameters, each of which will be passed on to
@@ -26,7 +25,7 @@ Perform a simulation of A/B testing based on a data frame of parameters
 
 library(dplyr)
 
-sim <- data_frame(replicate = seq_len(nreps)) \%>\%
+sim <- tibble(replicate = seq_len(nreps)) \%>\%
   mutate(proportion_A = .001, effect = 0, per_day = 10000) \%>\%
   perform_simulation()
 
@@ -36,4 +35,3 @@ ggplot(sim, aes(day, expected_loss, group = replicate)) +
   scale_y_log10()
 
 }
-

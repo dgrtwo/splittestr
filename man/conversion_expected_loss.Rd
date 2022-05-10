@@ -4,8 +4,16 @@
 \alias{conversion_expected_loss}
 \title{Find the expected loss in a conversion experiment}
 \usage{
-conversion_expected_loss(sA, nA, sB, nB, prior_alpha = 1, prior_beta = 1,
-  approx = FALSE, ...)
+conversion_expected_loss(
+  sA,
+  nA,
+  sB,
+  nB,
+  prior_alpha = 1,
+  prior_beta = 1,
+  approx = FALSE,
+  ...
+)
 }
 \arguments{
 \item{prior_alpha}{prior parameter to use for alpha (default uniform)}
@@ -30,4 +38,3 @@ a prior and calculates in terms of successes and totals of A and B,
 instead of the beta distribution. Note that the "error" is treatment
 A being better than B.
 }
-

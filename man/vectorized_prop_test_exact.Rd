@@ -9,4 +9,3 @@ vectorized_prop_test_exact(a, b, c, d)
 \description{
 Perform a Fisher exact test for each set of a, b, c, d
 }
-

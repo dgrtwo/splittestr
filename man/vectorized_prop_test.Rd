@@ -21,4 +21,3 @@ p-values that test whether a / (a + b) is the same proportion
 as c / (c + d). This is used in the simulations of p-value
 behavior.
 }
-
